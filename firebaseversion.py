@@ -1,8 +1,10 @@
+#!/usr/bin/env python3
 #DOING ALL NEEDED IMPORTS
 from flask import Flask, session
 from random import randrange
 from os import system, name 
 from firebase import firebase
+from threading import Thread
 
 #DON'T KNOW HOW TO CALL IT BUT WE NEED THESE THINGS
 app = Flask(__name__)
@@ -22,7 +24,7 @@ while True:
     #IT'S "cls" FOR WINDOWS, HERE WE'LL CLEAR CONSOLE TO EVERYTHING LOOKS OK
     system('clear') 
 
-    #ALL MESSAGES WILL BE HERE UP THE INPUT
+    #ALL MESSAGES WILL BE HERE UP THE INPUT    
     print(result)
 
     #WE'RE CREATING DB FOR OUR MESSAGES
