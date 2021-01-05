@@ -1,50 +1,62 @@
 #!/usr/bin/env python3
 
-#DOING ALL NEEDED IMPORTS
+#doing all needed imports
 from flask import Flask, session
 from random import randrange
 from os import system, name 
 from firebase import firebase
 import threading
 import time
-
-#DON'T KNOW HOW TO CALL IT BUT WE NEED THESE THINGS
+ 
+#don't know how to call it but we need these things
 app = Flask(__name__)
 app.secret_key = 'secret_key'
 
-#WE NEED IT TO GENERATE NUMBER FOR USER
+#we need it to generate number for user
 UserNum = "User " + str(randrange(10)) + ": "
 
-#THANKS TO PYTHON CODE WON'T WORK IF THIS LINE DOESN'T EXIST
+#thanks to Python code won't work if this line doesn't exist
 result = "SEND MESSAGE\n"
 
-#MAYBE WE'LL NEED IT
+#maybe we'll need it
 i = 0
 
-#HERE'S OUR LOOP SO WE'LL BE ABLE TO SEND MESSAGES OVER AND OVER AGAIN
-while True: 
-    #IT'S "cls" FOR WINDOWS, HERE WE'LL CLEAR CONSOLE TO EVERYTHING LOOKS OK
-    system('clear') 
+#we're creating db for our messages
+fb = firebase.FirebaseApplication("https://dbcfv-60641-default-rtdb.europe-west1.firebasedatabase.app/", None)
+ 
+# messages = []
 
-    #ALL MESSAGES WILL BE HERE UP THE INPUT    
+#here's our loop so we'll be able to send messages over and over again
+while True: 
+    messages = fb.get(f'dbcfv-60641-default-rtdb/Message/', '')
+    for message in messages:
+        print(fb.get(f'dbcfv-60641-default-rtdb/Message/' + message + "/Message", ''))
+ 
+ 
+    #all messages will be here up the input  
     def print_result():
         print(result)
-
+ 
     print_result()
+ 
 
-    #WE'RE CREATING DB FOR OUR MESSAGES
-    fb = firebase.FirebaseApplication("https://dbcfv-60641-default-rtdb.europe-west1.firebasedatabase.app/", None)
-
-    #NOW WE'RE ASKING FOR MESSAGE AND ADD USER NUMBER
+    #now we're asking for message and add user number
     message = input("Type your message:   ")
     Smessage = UserNum + message
 
-    #IT IS OUR DATA WITH MESSAGES
+    #it is our data with messages
     data = {
 	    'Message':Smessage
     }
 
-    #HERE WE'RE TRYING TO GET !ALL! MESSAGES
+    #here we're trying to get all messages
     path = fb.post('dbcfv-60641-default-rtdb/Message', data)
     Npath = str(path)[10:30]
-    result = fb.get(f'dbcfv-60641-default-rtdb/Message/', '')
+ 
+    # messages.append(Npath)
+ 
+    #it's "cls" for windows, here we'll clear console to everything looks ok
+    system('clear') 
+ 
+ 
+result = fb.get(f'dbcfv-60641-default-rtdb/Message/{Npath}/Message', '')
