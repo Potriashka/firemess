@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
+
 #DOING ALL NEEDED IMPORTS
 from flask import Flask, session
 from random import randrange
 from os import system, name 
 from firebase import firebase
-from threading import Thread
+import threading
+import time
 
 #DON'T KNOW HOW TO CALL IT BUT WE NEED THESE THINGS
 app = Flask(__name__)
@@ -25,7 +27,10 @@ while True:
     system('clear') 
 
     #ALL MESSAGES WILL BE HERE UP THE INPUT    
-    print(result)
+    def print_result():
+        print(result)
+
+    print_result()
 
     #WE'RE CREATING DB FOR OUR MESSAGES
     fb = firebase.FirebaseApplication("https://dbcfv-60641-default-rtdb.europe-west1.firebasedatabase.app/", None)
