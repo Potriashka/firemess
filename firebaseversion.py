@@ -44,10 +44,14 @@ def get_input_from_the_user():
         #now we're asking for message and add user number
         message = input("Type your message:   ")
         
-        if "(yes)" in message or "(y)" in message:
-            message = "👍"
+        if "(yes)" in message:
+            message = message.replace("(yes)", "👍")
+        if "(y)" in message:
+            message = message.replace("(y)", "👍")
         if "(no)" in message:
-            message = "👎"
+            message = message.replace("(no)", "👎")
+        if message == "/clear":
+            fb.delete('dbcfv-60641-default-rtdb/', '')
         else:
             pass
 
