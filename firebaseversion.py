@@ -9,6 +9,15 @@ import threading
 import time
 from pygame import mixer
 import pygame
+import subprocess as s
+
+from sys import argv
+
+sound = True
+
+if len(argv) > 1:
+    if argv[1] == "--notification-sound-off":
+        sound = False
 
 mixer.init()
 
@@ -45,14 +54,15 @@ def get_input_from_the_user():
 thread = threading.Thread(target=get_input_from_the_user)
 thread.start()
 
+pygame.mixer.music.load("noti2.wav")
 #here's our loop so we'll be able to send messages over and over again
 while True: 
     messages = fb.get(f'dbcfv-60641-default-rtdb/Message/', '')
 
     if messages:
         if old_data != messages:
-            pygame.mixer.music.load("noti2.wav")
-            pygame.mixer.music.play(0)
+            s.call(['notify-send','Perfect Messenger','New message!'])
+            if sound: pygame.mixer.music.play(0)
             #it's "cls" for windows, here we'll clear console to everything looks ok
             system('clear')
             for message in messages:
@@ -60,4 +70,3 @@ while True:
     
             old_data = messages
             print(result)
- 
