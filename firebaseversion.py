@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 #doing all needed imports
-from flask import Flask, session
 from random import randrange
 from os import system, name 
 from firebase import firebase
@@ -24,10 +23,6 @@ if len(argv) > 1:
 #initialising our mixer for notification sound
 mixer.init()
 
-#don't know how to call it but we need these things
-app = Flask(__name__)
-app.secret_key = 'secret_key'
-
 #we need it to generate number for user
 username = ' ' + input("Type in your username: ") + ": "
 
@@ -48,6 +43,14 @@ def get_input_from_the_user():
     while True:
         #now we're asking for message and add user number
         message = input("Type your message:   ")
+        
+        if "(yes)" in message or "(y)" in message:
+            message = "👍"
+        if "(no)" in message:
+            message = "👎"
+        else:
+            pass
+
         Smessage = str(datetime.now().time())[:8] + username + message
 
         #it is our data with messages
@@ -73,9 +76,12 @@ while True:
     #if messages came:
     if messages:
         if old_data != messages: #if sth new in messages:
-            #create notification banner
-            s.call(['notify-send','Perfect Messenger','New message!'])
-            if sound: pygame.mixer.music.play(0) #and here's sound if it turned on
+            message = messages[list(messages.keys())[-1]]["Message"]
+            author = message.split()[1].strip()
+            if " " + author + " " != username:
+                #create notification banner
+                s.call(['notify-send','Perfect Messenger', message])
+                if sound: pygame.mixer.music.play(0) #and here's sound if it turned on
             #it's "cls" for windows, here we'll clear console to everything looks ok
             system('clear')
             for message in messages:
