@@ -6,4 +6,9 @@ You can print
 /clear
 ```
 and all chat history will be deleted.
+With
+```python
+(y), (yes) and (no)
+```
+you can print 👍 or 👎.
 ###### Special thanks to Bekhruz Niyazov for helping in the development
