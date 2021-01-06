@@ -91,6 +91,7 @@ while True:
             #it's "cls" for windows, here we'll clear console to everything looks ok
             system('clear')
             if "/edit" in message:
+                message_id = ""
                 message = message.split()
                 time_and_username = message[1] + " " + message[2]
                 edited_message = ""
@@ -100,8 +101,7 @@ while True:
                 for msg in messages:
                     if messages[msg]["Message"].startswith(time_and_username):
                         message_id = msg
-                        edited_message = time_and_username + edited_message #LOOK HERE!!! I yesterday ADDED IT just because
-                        firebase.put(f'dbcfv-60641-default-rtdb/Message/{message_id}/', 'Message', edited_message)
+                fb.put(f'dbcfv-60641-default-rtdb/Message/{message_id}/', 'Message', edited_message)
             for message in messages:
                 print(messages[message]["Message"])
 
