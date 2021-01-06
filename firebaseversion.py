@@ -7,7 +7,11 @@ from os import system, name
 from firebase import firebase
 import threading
 import time
- 
+from pygame import mixer
+import pygame
+
+mixer.init()
+
 #don't know how to call it but we need these things
 app = Flask(__name__)
 app.secret_key = 'secret_key'
@@ -47,6 +51,8 @@ while True:
 
     if messages:
         if old_data != messages:
+            pygame.mixer.music.load("noti2.wav")
+            pygame.mixer.music.play(0)
             #it's "cls" for windows, here we'll clear console to everything looks ok
             system('clear')
             for message in messages:
