@@ -69,7 +69,6 @@ thread = threading.Thread(target=get_input_from_the_user)
 thread.start()
 
 #here's our notification sound (you need to download needed file)
-pygame.mixer.music.load("noti2.wav")
 
 #here's our loop so we'll be able to send messages over and over again
 while True: 
@@ -79,9 +78,7 @@ while True:
     #if messages came:
     if messages:
         if old_data != messages: #if sth new in messages:
-            #create notification banner
-            s.call(['notify-send','Perfect Messenger', message])
-            if sound: pygame.mixer.music.play(0) #and here's sound if it turned on
+            #create notification banner #and here's sound if it turned on
             #it's "cls" for windows, here we'll clear console to everything looks ok
             system('clear')
             for message in messages:
