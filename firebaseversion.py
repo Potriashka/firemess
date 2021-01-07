@@ -21,7 +21,6 @@ if len(argv) > 1:
         sound = False
 
 #initialising our mixer for notification sound
-mixer.init()
 
 #we need it to generate number for user
 username = ' ' + input("Type in your username: ") + ": "
@@ -80,12 +79,9 @@ while True:
     #if messages came:
     if messages:
         if old_data != messages: #if sth new in messages:
-            message = messages[list(messages.keys())[-1]]["Message"]
-            author = message.split()[1].strip()
-            if " " + author + " " != username:
-                #create notification banner
-                s.call(['notify-send','Perfect Messenger', message])
-                if sound: pygame.mixer.music.play(0) #and here's sound if it turned on
+            #create notification banner
+            s.call(['notify-send','Perfect Messenger', message])
+            if sound: pygame.mixer.music.play(0) #and here's sound if it turned on
             #it's "cls" for windows, here we'll clear console to everything looks ok
             system('clear')
             for message in messages:
