@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
- 
+
 #doing all needed imports
 from random import randrange
 from os import system, name
@@ -45,13 +45,11 @@ def get_input_from_the_user():
         message = input("Type your message:   ")
  
         if "(yes)" in message:
-            message = message.replace("(yes)", "?")
+            message = message.replace("(yes)", "👍")
         if "(y)" in message:
-            message = message.replace("(y)", "?")
+            message = message.replace("(y)", "👍")
         if "(no)" in message:
-            message = message.replace("(no)", "?")
-        if message == "/clear":
-            fb.delete('dbcfv-60641-default-rtdb/', '')
+            message = message.replace("(no)", "👎")
         else:
             pass
  
