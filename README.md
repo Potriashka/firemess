@@ -20,8 +20,8 @@ py firebaseversion.py
 ```python
 python3 firebaseversion.py
 ```
-#### Note:
-###### if you're on windows change "clear" on 27th and on 104th string to "cls"
+#### Notes: 
+###### if you're on windows and you're having some problems contact me by https://github.com/Potriashka/fbv/issues 
 #### you can launch the Messenger and start chatting
 You can print
 ```python
