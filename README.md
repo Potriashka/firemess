@@ -15,18 +15,18 @@ pip3 install -r requirements.txt
 #### and then with a short command
 ##### Windows:
 ```python
-cd fbv
-cd specVERS
+>cd fbv
+>cd specVERS
 py firebaseversion.py
 ```
 ##### Linux:
 ```python
-cd fbv/
+>cd fbv/
 python3 firebaseversion.py
 ```
 #### Notes: 
 ###### if you're on windows and you're having some problems contact me by https://github.com/Potriashka/fbv/issues 
-#### you can launch the Messenger and start chatting
+#### You can launch the Messenger and start chatting
 You can print
 ```python
 /clear
