@@ -21,7 +21,7 @@ py firebaseversion.py
 python3 firebaseversion.py
 ```
 #### Note:
-###### if you're on windows change "clear" on 27th string to "cls"
+###### if you're on windows change "clear" on 27th and on 104th string to "cls"
 #### you can launch the Messenger and start chatting
 You can print
 ```python
