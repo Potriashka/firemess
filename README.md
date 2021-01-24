@@ -6,6 +6,7 @@
 ##### Windows
 ```python
 pip install -r requirements.txt
+#maybe it won't work and you'll need to install all modules in old way
 ```
 ##### Linux
 ```python
@@ -14,10 +15,13 @@ pip3 install -r requirements.txt
 #### and then with a short command
 ##### Windows:
 ```python
+cd fbv
+cd specVERS
 py firebaseversion.py
 ```
 ##### Linux:
 ```python
+cd fbv/
 python3 firebaseversion.py
 ```
 #### Notes: 
