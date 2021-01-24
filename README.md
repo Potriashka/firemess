@@ -1,22 +1,15 @@
-# fbv 
+# FIREBASE VERSION OF CHAT APP
 ## It is the terminal messenger developed by Peter Repiev
 ### Here you can chat with whoever you want. Just give your name and go ahead!
-#### To start you need to install all needed Python moduls (pip3 for Linux):
+#### First off all download all files through *git clone https://github.com/Potriashka/fbv.git* or by pressing "download zip" button
+#### To start you need to install all needed Python moduls by printing:
+##### Windows
 ```python
-pip install random
-pip install os
-pip install threading
-pip install time
-pip install datetime
-pip install pygame
-pip install subprocess
-pip install sys
-pip install firebase
-pip install python_jwt
-pip install sseclient
-pip install gcloud
-pip install requests_toolbelt
-pip install pycrypto
+pip install -r requirements.txt
+```
+##### Linux
+```python
+pip3 install -r requirements.txt
 ```
 #### and then with a short command
 ##### Windows:
@@ -27,6 +20,8 @@ py firebaseversion.py
 ```python
 python3 firebaseversion.py
 ```
+#### Note:
+###### if you're on windows change "clear" on 27th string to "cls"
 #### you can launch the Messenger and start chatting
 You can print
 ```python
