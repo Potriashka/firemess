@@ -1,7 +1,7 @@
 # FIREBASE VERSION OF CHAT APP
 ## It is the terminal messenger developed by Peter Repiev
 ### Here you can chat with whoever you want. Just give your name and go ahead!
-#### First off all download all files through *git clone https://github.com/Potriashka/fbv.git* or by pressing "download zip" button
+#### First of all download all files through *git clone https://github.com/Potriashka/fbv.git* or by pressing "download zip" button
 #### To start you need to install all needed Python moduls by printing:
 ##### Windows
 ```python
