@@ -8,14 +8,18 @@ import subprocess as s
 from sys import argv
 from datetime import datetime
 from playsound import playsound
+import os
 
 #we're creating db for our messages
 fb = firebase.FirebaseApplication("https://dbcfv-60641-default-rtdb.europe-west1.firebasedatabase.app/", None)
 
+contents = None
 #we're creating registration function that we'll need
 def registr():
+    global contents
     password = 1
     password2 = 2
+    key = None
     #we need user to write his password rightly
     while password != password2:
         #ask user about their data
@@ -23,13 +27,19 @@ def registr():
         email = input("type in your email:   ") + '\n'
         password = input("type your password:   ")
         password2 = input("reenter a password:   ")
+        key = int(input("Key (number): "))
     #if both password are alright:
     if password == password2:
-        f = open("account.txt","w+")
+        temp = ""
+        for char in password:
+            temp += chr(int(ord(char))+key)
+        password = temp
+        f = open("account.txt","w")
         #we need it to send data to db
         acc_sets = name + email + password
-        f.write(acc_sets)
+        f.write(acc_sets + "\n" + str(key))
         f.close()
+        contents = acc_sets
         data = {
             'Account':acc_sets
             }
@@ -38,22 +48,17 @@ def registr():
 
 
 #open file to check authorization
-f = open("account.txt","r")
-#reding the file
-contents = f.read()
-#we check if the file is empty
-if contents == '':
-    #if it isn't empty - do the registration
-    registr()
-else:
-    pass #I'll write this part later
-
+try:
+    f = open("account.txt","r")
+    #reding the file
+    contents = f.read()
+    f.close()
+except: registr()
 
 #we write user name (it won't work for the first time)
 username = ' ' + contents.split("\n", 1)[0] + ": "
 
 #close file
-f.close()
 
 
 
@@ -90,6 +95,13 @@ def get_input_from_the_user():
             message = message.replace("(no)", "👎")
         if "(cryingwithlaughter)" in message:
             message = message.replace("(cryingwithlaughter)", "😂")
+
+        if message == "/logout":
+            f = open("account.txt","w+")
+            f.write('')
+            f.close
+            os.remove("account.txt")
+            quit()
 
         if message == "/clear":
             fb.delete('Message', '')
