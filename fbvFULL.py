@@ -97,24 +97,43 @@ def get_input_from_the_user():
             message = message.replace("(cryingwithlaughter)", "😂")
 
         if message == "/logout":
-            f = open("account.txt","w+")
-            f.write('')
-            f.close
             os.remove("account.txt")
             quit()
 
-        if message == "/clear":
+        elif message == "/clear":
             fb.delete('Message', '')
 
-        if message.startswith("/edit"):
+        elif message.startswith("/reply"):
+            original = ""
             message_id = ""
-            message = message.split()
-            if len(message) > 3:
-                time_and_username = message[1] + " " + message[2]
-                if username.strip().startswith(message[2].strip()):
+            msg = message.split()
+            if len(msg) > 3:
+                time_and_username = msg[1] + " " + msg[2]
+                edited_message = ""
+                for word in msg:
+                    if msg.index(word) > 2:
+                        edited_message += word + " "
+                for m in messages:
+                    if messages[m]["Message"].startswith(time_and_username):
+                        message_id = m
+                        original = messages[m]["Message"]
+                current_time = str(datetime.now().time())[:8]
+                fb.put(f'Message/{message_id}/', 'Message', original + "↓\n" + current_time + username + edited_message + "↑")
+            message_id = ""
+            original = ""
+            message = ""
+            edited_message = ""
+
+
+        elif message.startswith("/edit"):
+            message_id = ""
+            msg = message.split()
+            if len(msg) > 3:
+                time_and_username = msg[1] + " " + msg[2]
+                if username.strip().startswith(msg[2].strip()):
                     edited_message = ""
-                    for word in message:
-                        if message.index(word) > 2:
+                    for word in msg:
+                        if msg.index(word) > 2:
                             edited_message += word + " "
                     for msg in messages:
                         if messages[msg]["Message"].startswith(time_and_username):
