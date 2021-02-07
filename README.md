@@ -1,4 +1,4 @@
-# FIREBASE VERSION OF CHAT APP
+# FIREBASE VERSION OF FIREMESS
 ## It is the terminal messenger developed by Peter Repiev
 ### Here you can chat with whoever you want. Just give your name and go ahead!
 ##### This project is still in the development and 100% working and completed version is firebaseversion.py but FULL version of firemess is in fbvFULL.py
