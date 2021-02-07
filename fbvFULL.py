@@ -85,7 +85,7 @@ old_data = {}
 def get_input_from_the_user():
     while True:
         #now we're asking for message and add user number
-        message = input("Type your message:   ")
+        message = input()
         
         if "(yes)" in message:
             message = message.replace("(yes)", "👍")
@@ -101,6 +101,7 @@ def get_input_from_the_user():
             quit()
 
         elif message == "/clear":
+            system("clear")
             fb.delete('Message', '')
 
         elif message.startswith("/reply"):
