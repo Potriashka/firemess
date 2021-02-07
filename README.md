@@ -35,9 +35,9 @@ You can print
 and all chat history will be deleted.
 With
 ```python
-(y), (yes) and (no)
+(y), (yes), (no) or (cryingwithlaughter)
 ```
-you can print 👍 or 👎.
+you can print 👍, 👎 or 😂.
 Also there's ability for editing
 ```python
 /edit 14:08:08 (message's time) john (your name) blablabla (new text)
