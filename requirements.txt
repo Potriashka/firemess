@@ -12,3 +12,4 @@ sseclient
 gcloud
 requests_toolbelt
 pycrypto
+pyrebase
