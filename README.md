@@ -51,7 +51,7 @@ You can also send pictures by
 /img <picname.png>
 ```
 and download them by
-```python
+```javascript
 /Dimg <picname.png>
 ```
 ##### Not only PNGs are supported
