@@ -46,4 +46,13 @@ and replying
 ```python
 /reply 13:03:07 (message's time) john (message's creator) sth (text of a message)
 ```
+You can also send pictures by
+```python
+/img <picname.png>
+```
+and download them by
+```python
+/Dimg <picname.png>
+```
+##### Not only PNGs are supported
 ###### Special thanks to Bekhruz Niyazov for helping in the development
