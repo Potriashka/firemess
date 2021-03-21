@@ -1,9 +1,9 @@
 # FIREBASE VERSION OF FIREMESS
 ## It is the terminal messenger developed by Peter Repiev
 ### Here you can chat with whoever you want. Just give your name and go ahead!
-##### This project is still in the development and 100% working and completed version is firebaseversion.py but FULL version of firemess is in fbvFULL.py
-#### First of all download all files through ```git clone https://github.com/Potriashka/fbv.git``` or by pressing "download zip" button (https://github.com/Potriashka/fbv/archive/main.zip)
-#### To start you need to install all needed Python moduls by printing:
+##### This project is still in the development. 100% working and completed version is firebaseversion.py but FULL version of firemess is in fbvFULL.py
+#### First of all download all files through ```git clone https://github.com/Potriashka/fbv.git``` or by clicking "download zip" button (https://github.com/Potriashka/fbv/archive/main.zip)
+#### To start you need to install all needed Python moduls by typing:
 ##### Windows
 ```python
 pip install -r requirements.txt
@@ -16,14 +16,14 @@ pip3 install -r requirements.txt
 #### and then with a short command
 ##### Windows:
 ```python
->cd fbv
->cd specVERS
-py firebaseversion.py
+$ cd fbv
+$ cd specVERS
+$ py firebaseversion.py
 ```
 ##### Linux:
 ```python
->cd fbv/
-python3 fbvFULL.py
+$ cd fbv/
+$ python3 fbvFULL.py
 ```
 ##### Phone:
 You should download or copy to some IDE ```fbv.py``` in ```mobileVERS/``` then just run it and you'll be able to chat
@@ -49,15 +49,15 @@ and replying
 ```python
 /reply 13:03:07 (message's time) john (message's creator) sth (text of a message)
 ```
-You can also send pictures by
+You can also send files by
 ```python
-/img <picname.png>
+/img <file.twt>
 ```
 and download them by
 ```javascript
-/Dimg <picname.png>
+/Dimg <file.twt>
 ```
-##### Not only PNGs are supported
+##### Not only pictures are supported
 And there's also ability to make and instantly upload screenshot:
 ```python
 /screenshot {timer}
