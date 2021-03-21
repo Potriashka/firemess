@@ -122,49 +122,74 @@ def get_input_from_the_user():
         elif message == "/clear":
             fb.delete('Message', '')
 
+        # if the message starts with "/reply"
         elif message.startswith("/reply"):
             original = ""
             message_id = ""
+            # splitting the message into words
             msg = message.split()
+            # if the number of words in the message is 3
             if len(msg) > 3:
+                # time and username are the first 2 words
                 time_and_username = msg[1] + " " + msg[2]
-                edited_message = ""
+                reply_message = ""
+                # cycling through each word
                 for word in msg:
+                    # if the word is not time and it is not username
                     if msg.index(word) > 2:
-                        edited_message += word + " "
+                        # adding the word to the reply
+                        reply_message += word + " "
+                # cycling through each message in all messages
                 for m in messages:
+                    # if the message starts with given time and username
                     if messages[m]["Message"].startswith(time_and_username):
+                        # getting the message id
                         message_id = m
+                        # getting the original message
                         original = messages[m]["Message"]
+                # getting the current time
                 current_time = str(datetime.now().time())[:8]
-                fb.put(f'Message/{message_id}/', 'Message', original + "↓\n" + current_time + username + edited_message + "↑")
+                # appending the reply to the original message and saving it in the firebase
+                fb.put(f'Message/{message_id}/', 'Message', original + "↓\n" + current_time + username + reply_message + "↑")
+            # resetting all variables
             message_id = ""
             original = ""
             message = ""
-            edited_message = ""
+            reply_message = ""
 
         elif message.startswith("/img"):
-            x = message[len("/img"):].strip()
-            storage.child(f'FB/{x}').put(x)
-            fb.post('Message', {"Message": f'{x} was uploaded'})
+            x = message[len("/img"):].strip() # get name of a file
+            storage.child(f'FB/{x}').put(x) # upload file to the firebase storage
+            fb.post('Message', {"Message": f'{x} was uploaded'}) # create message that the file was uploaded
 
         elif message.startswith("/Dimg"):
-            x = message[len("/img-d"):].strip()
-            storage.child(f'FB/{x}').download(f"{x}")
-            fb.post('Message', {"Message": f'{x} was downloaded'})
+            x = message[len("/img-d"):].strip() # get name of a file
+            storage.child(f'FB/{x}').download(f"{x}") # download file from the firebase storage
+            fb.post('Message', {"Message": f'{x} was downloaded'}) # create message that the file was downloaded
 
+        # if the message starts with "/edit"
         elif message.startswith("/edit"):
             message_id = ""
+            # splitting the message into words
             msg = message.split()
+            # if the number of words is bigger than 2
             if len(msg) > 2:
+                # getting the time and appending the username
                 time_and_username = msg[1] + " " + username.replace(":", "").strip()
                 edited_message = ""
+                # cycling through each word in the message
                 for word in msg:
+                    # if the word is not time
                     if msg.index(word) > 1:
+                        # adding the word to the edited_message
                         edited_message += word + " "
+                # cycling through each message in all messages
                 for msg in messages:
+                    # if the message starts with the given time and username
                     if messages[msg]["Message"].startswith(time_and_username):
+                        # saving the message id
                         message_id = msg
+                # saving the edited message
                 fb.put(f'Message/{message_id}/', 'Message', str(datetime.now().time())[:8] + username + "EDITED " + edited_message)
 
         else:
@@ -197,16 +222,18 @@ while True:
                 if " " + author + " " != username:
                     #create notification banner
                     s.call(['notify-send','Perfect Messenger', message])
-                    if sound: playsound("noti2.wav") #and here's sound if it turned on
+                    if sound:
+                        try:
+                            playsound("noti2.wav") #and here's sound if it turned on
+                        except: pass
                 #it's "cls" for windows, here we'll clear console to everything looks ok
                 system('clear')
                 for message in messages:
                     print(messages[message]["Message"])
-
                 old_data = messages
                 print(result)
             except Exception as e:
-                print(e)
+                pass
 
 
 ###
