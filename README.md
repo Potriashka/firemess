@@ -57,6 +57,7 @@ and download them by
 ```javascript
 /Dimg <picname.png>
 ```
+##### Not only PNGs are supported
 And there's also ability to make and instantly upload screenshot:
 ```python
 /screenshot
@@ -65,5 +66,4 @@ and you can download last screenshot via:
 ```css
 /DS # Download Screenshot
 ```
-##### Not only PNGs are supported
 ###### Special thanks to Bekhruz Niyazov for helping in the development
