@@ -26,8 +26,8 @@ py firebaseversion.py
 python3 fbvFULL.py
 ```
 ##### Phone:
-###### You should download or copy to some IDE ```fbv.py``` in ```mobileVERS/``` then just run it and you'll be able to chat
-(all the files will be downloaded in the same folder ```fbv.py``` is)
+You should download or copy to some IDE ```fbv.py``` in ```mobileVERS/``` then just run it and you'll be able to chat
+###### (all the files will be downloaded in the same folder ```fbv.py``` is)
 #### Notes: 
 ###### if you're on windows and you're having some problems contact me by https://github.com/Potriashka/fbv/issues 
 #### You can launch the Messenger and start chatting
