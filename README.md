@@ -60,7 +60,7 @@ and download them by
 ##### Not only PNGs are supported
 And there's also ability to make and instantly upload screenshot:
 ```python
-/screenshot
+/screenshot {timer}
 ```
 and you can download last screenshot via:
 ```css
