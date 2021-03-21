@@ -2,7 +2,7 @@
 ## It is the terminal messenger developed by Peter Repiev
 ### Here you can chat with whoever you want. Just give your name and go ahead!
 ##### This project is still in the development and 100% working and completed version is firebaseversion.py but FULL version of firemess is in fbvFULL.py
-#### First of all download all files through ```*git clone https://github.com/Potriashka/fbv.git*``` or by pressing "download zip" button (https://github.com/Potriashka/fbv/archive/main.zip)
+#### First of all download all files through ```git clone https://github.com/Potriashka/fbv.git``` or by pressing "download zip" button (https://github.com/Potriashka/fbv/archive/main.zip)
 #### To start you need to install all needed Python moduls by printing:
 ##### Windows
 ```python
