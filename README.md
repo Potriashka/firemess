@@ -43,7 +43,7 @@ With
 you can print 👍, 👎 or 😂.
 Also there's ability for editing
 ```python
-/edit 14:08:08 (message's time) john (your name) blablabla (new text)
+/edit 14:08:08 (message's time) john (your name) blahblahblah (new text)
 ```
 and replying
 ```python
