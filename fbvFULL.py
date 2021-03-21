@@ -10,6 +10,7 @@ from datetime import datetime
 from playsound import playsound
 import os
 import pyrebase
+from mss import mss
 
 #we're creating db for our messages
 fb = firebase.FirebaseApplication("https://dbcfv-60641-default-rtdb.europe-west1.firebasedatabase.app/", None)
@@ -118,6 +119,17 @@ def get_input_from_the_user():
 #        elif message == "/test":
 #            NameOfChat = input("Type the name of a new chat?:   ")
 
+        elif message == '/screenshot':
+            with mss() as sct: # making the
+                sct.shot() # screenshot
+            x = 'monitor-1.png' # name of a screenshot to put it in storage
+            storage.child(f'FB/{x}').put(x) # upload the screenshot to the firebase storage
+            fb.post('Message', {"Message": f'Screenshot ({x}) was uploaded'}) # create message that the screenshot was uploaded
+
+        elif message == '/DS':
+            x = 'monitor-1.png' 
+            storage.child(f'FB/{x}').download(f"{x}") # download screenshot from the firebase storage
+            fb.post('Message', {"Message": f'Screenshot ({x}) was downloaded'}) # create message that the screenshot was downloaded
 
         elif message == "/clear":
             fb.delete('Message', '')
