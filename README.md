@@ -62,7 +62,7 @@ And there's also ability to make and instantly upload screenshot:
 /screenshot
 ```
 and you can download last screenshot via:
-```java
+```css
 /DS # Download Screenshot
 ```
 ##### Not only PNGs are supported
