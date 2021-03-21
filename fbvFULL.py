@@ -11,6 +11,7 @@ from playsound import playsound
 import os
 import pyrebase
 from mss import mss
+import time
 
 #we're creating db for our messages
 fb = firebase.FirebaseApplication("https://dbcfv-60641-default-rtdb.europe-west1.firebasedatabase.app/", None)
@@ -119,7 +120,8 @@ def get_input_from_the_user():
 #        elif message == "/test":
 #            NameOfChat = input("Type the name of a new chat?:   ")
 
-        elif message == '/screenshot':
+        elif message.startswith('/screenshot'):
+            time.sleep(int(message.split()[1]))
             with mss() as sct: # making the
                 sct.shot() # screenshot
             x = 'monitor-1.png' # name of a screenshot to put it in storage
